@@ -1,0 +1,26 @@
+<!--
+Parameters:
+    id - (Required) Target ID
+    width - (Optional) width
+    height - (Optional) height
+-->
+
+{{ if .IsNamedParams }}
+<iframe src="https://open.spotify.com/embed/episode/{{ .Get "id" }}"
+    width="{{ default "100%" (.Get "width") }}"
+    height="{{ default "152" (.Get "height") }}"
+    frameborder="0"
+		allowfullscreen=""
+    allowtransparency="true"
+		allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+		loading="lazy"></iframe>
+{{ else }}
+<iframe src="https://open.spotify.com/embed/episode/{{ .Get 1 }}"
+    width="{{ default "100%" (.Get 2) }}"
+    height="{{ default "152" (.Get 3) }}"
+    frameborder="0"
+		allowfullscreen=""
+    allowtransparency="true"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+		loading="lazy"></iframe>
+{{ end }}
